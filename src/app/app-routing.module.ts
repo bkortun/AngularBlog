@@ -13,6 +13,7 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', component: HomeComponent },
+      { path: 'sayfa/:page', component: HomeComponent },
       { path: 'hakkimizda', component: AboutMeComponent },
       { path: 'iletisim', component: ContactComponent },
     ],
