@@ -11,6 +11,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainLayoutComponent } from '../layout/main-layout/main-layout.component';
 import { MainNavComponent } from '../nav/main-nav/main-nav.component';
+import { ArticleComponent } from './article/article.component';
 
 
 
@@ -20,7 +21,8 @@ import { MainNavComponent } from '../nav/main-nav/main-nav.component';
     MainNavComponent,
     HomeComponent,
     AboutMeComponent,
-    ContactComponent
+    ContactComponent,
+    ArticleComponent
   ],
   imports: [
     CommonModule,

@@ -1,3 +1,33 @@
+<div *ngIf="articleService.loading==true">
+<main *ngFor="let item of createRange()" class="page mb-3">
+  <!-- Content -->
+  <div class="page-content">
+
+      <!-- Placeholder Content -->
+      <div class="placeholder-content">
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+          <div class="placeholder-content_item"></div>
+      </div>
+
+  </div>
+
+</main>
+</div>
+
+
+
+
+
+
 <div *ngIf="articles.length > 0; else emptyTemplate">
   <div
     *ngFor="
@@ -25,7 +55,7 @@
 </div>
 
 <ng-template #emptyTemplate>
-  <div class="alert alert-danger" role="alert">Makale bulunamamdı...</div>
+  <div *ngIf="!articleService.loading" class="alert alert-danger" role="alert">Makale bulunamamdı...</div>
 </ng-template>
 
 <ng-template
@@ -78,7 +108,7 @@
   </div>
 </ng-template>
 
-<pagination-controls
+<pagination-controls *ngIf="totalCount>pageSize"
   response="true"
   (pageChange)="pageChange($event)"
   previousLabel="Geri"

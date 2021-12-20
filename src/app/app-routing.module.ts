@@ -6,6 +6,7 @@ import { AboutMeComponent } from './pages/about-me/about-me.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'sayfa/:page', component: HomeComponent },
+      {path:'makale/:id', component:ArticleComponent},
       { path: 'hakkimizda', component: AboutMeComponent },
       { path: 'iletisim', component: ContactComponent },
     ],

@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   articles: Article[];
   totalCount: number;
   pageSize: number = 5;
+  loadingItem: number = 5;
 
   constructor(
     private articleService: ArticleService,
@@ -25,13 +26,21 @@ export class HomeComponent implements OnInit {
       if (parms.get('page')) {
         this.page = Number(parms.get('page'));
       }
+      if (this.totalCount > 0) {
+        if (this.totalCount >= this.page * this.pageSize) {
+          this.loadingItem = 5;
+        } else {
+          this.loadingItem = this.totalCount - (this.page - 1) * this.pageSize;
+        }
+      }
       this.articles = [];
       this.totalCount = 0;
       this.articleService
         .getArticles(this.page, this.pageSize)
         .subscribe((response) => {
-          console.log(response)
+          console.log(response);
           this.articles = response.articles;
+          this.totalCount = response.totalCount;
         });
     });
   }

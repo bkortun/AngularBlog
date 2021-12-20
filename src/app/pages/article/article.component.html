@@ -1,0 +1,58 @@
+<div class="card bordered-primary" *ngIf="!articleService.loading">
+  <div class="card-header">
+    <h2>{{ article.title }}</h2>
+
+    <span class="badge badge-pill bg-dark">
+      <i class="fa fa-calendar"></i>
+      {{ article.publishDate | date: "dd.MM.yyyy" }}
+    </span>
+    <span class="ms-1"></span>
+
+    <span class="badge badge-pill bg-warning">
+      <i class="fa fa-folder"></i> {{ category.name }}
+    </span>
+    <span class="ms-1"></span>
+
+    <span class="badge badge-pill bg-primary">
+      <i class="fa fa-eye"></i> {{ article.viewCount }}
+    </span>
+    <span class="ms-1"></span>
+
+    <span class="badge badge-pill bg-success">
+      <i class="fa fa-comment"></i> {{ article.commentCount }}
+    </span>
+  </div>
+  <div class="card-body">
+    <div [innerHTML]="article.contentMain"></div>
+  </div>
+</div>
+
+<div class="card bg-light" style="height: 500px" *ngIf="articleService.loading">
+  <div class="card-body text-center">
+    <h1>Makale Yükleniyor...</h1>
+    <div class="spinner-grow text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>
