@@ -19,4 +19,8 @@ export class ArticleService {
     let url: string = this.apiUrl + '/' + id;
     return this.httpClient.get<Article>(url).pipe(tap(x=>{this.loading=false}));
   }
+  getArticleWithCategory(id:number,page: number, pageSize: Number){
+    let url: string = this.apiUrl + '/'+"GetArticleWithCategory"+ '/' + id + '/' + page + '/' + pageSize;
+    return this.httpClient.get<ArticlePg>(url).pipe(tap(x=>{this.loading=false}));
+  }
 }

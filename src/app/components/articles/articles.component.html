@@ -101,7 +101,7 @@
         <i class="fa fa-comment"></i> {{ commentCount }}
       </span>
 
-      <a [routerLink]="['/makale', id]" class="btn btn-primary btn-sm float-end"
+      <a [routerLink]="['/makale',title | urlFormat, id]" class="btn btn-primary btn-sm float-end"
         >Devamını Oku</a
       >
     </div>

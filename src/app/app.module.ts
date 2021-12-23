@@ -12,11 +12,13 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AdminNavComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { ArticleComponent } from './pages/article/article.component';
+import { CategoryArticlesComponent } from './pages/category-articles/category-articles.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,9 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'sayfa/:page', component: HomeComponent },
-      {path:'makale/:id', component:ArticleComponent},
+      {path:'makale/:title/:id', component:ArticleComponent},
+      {path:"kategori/:name/:id", component:CategoryArticlesComponent},
+      {path:"kategori/:name/:id/sayfa/:page", component:CategoryArticlesComponent},
       { path: 'hakkimizda', component: AboutMeComponent },
       { path: 'iletisim', component: ContactComponent },
     ],

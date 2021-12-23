@@ -6,11 +6,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MenuCategoryComponent } from './menu-category/menu-category.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ArticlesComponent } from './articles/articles.component';
-
+import { UrlFormatPipe } from '../pipes/url-format.pipe';
 
 
 @NgModule({
-  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent],
+  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlFormatPipe],
   imports: [
     CommonModule,
     RouterModule,
@@ -19,7 +19,8 @@ import { ArticlesComponent } from './articles/articles.component';
   exports:[
     MenuCategoryComponent,
     PageTitleComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    UrlFormatPipe
   ]
 })
 export class ComponentsModule { }
