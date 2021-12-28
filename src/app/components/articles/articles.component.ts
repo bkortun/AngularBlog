@@ -48,6 +48,10 @@ export class ArticlesComponent implements OnInit {
         let categoryId=this.activatedRoute.snapshot.paramMap.get("id")
         this.router.navigateByUrl('/kategori/'+categoryName+'/'+categoryId+'/sayfa/'+this.page)
         break;
+        case 'search':
+        let searchText=this.activatedRoute.snapshot.queryParamMap.get("s")
+        this.router.navigateByUrl('/arama/sayfa/'+this.page+'?s='+searchText)
+        break;
 
       default:
         break;
