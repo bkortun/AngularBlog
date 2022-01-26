@@ -7,10 +7,12 @@ import { MenuCategoryComponent } from './menu-category/menu-category.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { UrlFormatPipe } from '../pipes/url-format.pipe';
+import { MenuArticleMostViewComponent } from './menu-article-most-view/menu-article-most-view.component';
+import { MenuArchiveComponent } from './menu-archive/menu-archive.component';
 
 
 @NgModule({
-  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlFormatPipe],
+  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlFormatPipe, MenuArticleMostViewComponent, MenuArchiveComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -20,7 +22,9 @@ import { UrlFormatPipe } from '../pipes/url-format.pipe';
     MenuCategoryComponent,
     PageTitleComponent,
     ArticlesComponent,
-    UrlFormatPipe
+    UrlFormatPipe,
+    MenuArticleMostViewComponent,
+    MenuArchiveComponent
   ]
 })
 export class ComponentsModule { }

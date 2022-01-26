@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ArticlePg } from '../models/articlePg';
 import { tap } from 'rxjs/operators';
 import { Article } from '../models/article';
+import { Archive } from '../models/archive';
 
 @Injectable({
   providedIn: 'root',
@@ -26,5 +27,13 @@ export class ArticleService {
   getArticleWithCategory(id:number,page: number, pageSize: Number){
     let url: string = this.apiUrl + '/'+"GetArticleWithCategory"+ '/' + id + '/' + page + '/' + pageSize;
     return this.httpClient.get<ArticlePg>(url).pipe(tap(x=>{this.loading=false}));
+  }
+  getArticlesByMostView(){
+    let url:string =this.apiUrl+"/"+"GetArticlesByMostView";
+    return this.httpClient.get<Article[]>(url);
+  }
+  getArticlesArchive(){
+    let url:string =this.apiUrl+"/"+"GetArticlesArchive";
+    return this.httpClient.get<Archive[]>(url);
   }
 }
