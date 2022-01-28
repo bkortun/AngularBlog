@@ -25,6 +25,7 @@ export class ArticleComponent implements OnInit {
       this.articleService.getArticle(id).subscribe((response) => {
         this.article = response;
         this.category = response.category;
+        this.articleService.articleViewCountUp(this.article.id).subscribe();
       });
     });
   }

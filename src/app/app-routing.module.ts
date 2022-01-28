@@ -9,6 +9,7 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { ArticleComponent } from './pages/article/article.component';
 import { CategoryArticlesComponent } from './pages/category-articles/category-articles.component';
 import { SearchsComponent } from './pages/searchs/searchs.component';
+import { ArchiveComponent } from './pages/archive/archive.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,8 @@ const routes: Routes = [
       {path:"kategori/:name/:id", component:CategoryArticlesComponent},
       {path:"kategori/:name/:id/sayfa/:page", component:CategoryArticlesComponent},
       {path:"arama/sayfa/:page", component:SearchsComponent},
+      {path:"arsiv/:year/:month", component:ArchiveComponent},
+      {path:"arsiv/:year/:month/sayfa/:page", component:ArchiveComponent},
       { path: 'hakkimizda', component: AboutMeComponent },
       { path: 'iletisim', component: ContactComponent },
     ],

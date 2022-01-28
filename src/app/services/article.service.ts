@@ -36,4 +36,12 @@ export class ArticleService {
     let url:string =this.apiUrl+"/"+"GetArticlesArchive";
     return this.httpClient.get<Archive[]>(url);
   }
+  getArticleArchiveList(year:number,month:number,page:number,pageSize:number){
+    let url:string =this.apiUrl+'/'+"GetArticleArchiveList"+ '/' + year + '/'+ month + '/' + page + '/' + pageSize;
+    return this.httpClient.get<ArticlePg>(url).pipe(tap(x=>{ this.loading=false}));
+  }
+  articleViewCountUp(id:number){
+    let url:string =this.apiUrl+'/'+"ArticleViewCountUp"+ '/' + id;
+    return this.httpClient.get(url);
+  }
 }
