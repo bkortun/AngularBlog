@@ -51,7 +51,6 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log('geldi');
       this.loading = true;
       this.helperService.sendContactMail(this.contactForm.value).subscribe(
         (response) => {
@@ -61,7 +60,6 @@ export class ContactComponent implements OnInit {
           this.info = 'Mesajınız İletildi.';
         },
         (error) => {
-          console.log('gelmedi');
           this.loading = false;
           this.success = false;
           this.info = 'Bir Hata Oluştu.';

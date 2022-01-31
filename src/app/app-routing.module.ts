@@ -10,6 +10,11 @@ import { ArticleComponent } from './pages/article/article.component';
 import { CategoryArticlesComponent } from './pages/category-articles/category-articles.component';
 import { SearchsComponent } from './pages/searchs/searchs.component';
 import { ArchiveComponent } from './pages/archive/archive.component';
+import { AdminHomeComponent } from './admin-pages/admin-home/admin-home.component';
+import { AdminArticleComponent } from './admin-pages/article/article/article.component';
+import { ArticleListComponent } from './admin-pages/article/article-list/article-list.component';
+import { ArticleAddComponent } from './admin-pages/article/article-add/article-add.component';
+import { ArticleUpdateComponent } from './admin-pages/article/article-update/article-update.component';
 
 const routes: Routes = [
   {
@@ -28,7 +33,19 @@ const routes: Routes = [
       { path: 'iletisim', component: ContactComponent },
     ],
   },
-  { path: 'admin', component: AdminLayoutComponent },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    children:[
+      {path:"",component: AdminHomeComponent},
+      {path:"anasayfa",component:AdminHomeComponent},
+      {path:"makale",component:AdminArticleComponent,children:[
+        {path:"liste",component:ArticleListComponent},
+        {path:"ekle",component:ArticleAddComponent},
+        {path:"guncelle/:id",component:ArticleUpdateComponent}
+      ]}
+   ]
+  },
 ];
 
 

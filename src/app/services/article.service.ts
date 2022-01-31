@@ -44,4 +44,8 @@ export class ArticleService {
     let url:string =this.apiUrl+'/'+"ArticleViewCountUp"+ '/' + id;
     return this.httpClient.get(url);
   }
+
+  getArticlesWithoutPg(){
+    return this.httpClient.get<Article[]>(this.apiUrl);
+  }
 }
