@@ -1,14 +1,67 @@
 <div class="row">
-  <div class="col-md-9"></div>
+  <div class="col-md-9">
+    <form
+      *ngIf="info == null"
+      (ngSubmit)="onSubmit()"
+      [formGroup]="articleForm"
+    >
+      <div class="form-container">
+        <mat-form-field>
+          <input
+            type="text"
+            placeholder="kategori"
+            formControlName="category"
+            matInput
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete
+            [displayWith]="displayCategoryName"
+            #auto="matAutocomplete"
+          >
+            <mat-option *ngFor="let item of categories" [value]="item">
+              {{ item.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="title" matInput placeholder="başlık" />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="contentSummary"
+            matInput
+            placeholder="makale özeti"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="contentMain" matInput placeholder="makale" />
+        </mat-form-field>
+        <button [disabled]="loading" mat-raised-button color="primary">
+          Makale Ekle
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm"
+            role="status"
+            aria-hidden="true"
+          ></span>
+        </button>
+      </div>
+    </form>
+  </div>
   <div class="col-md-3">
-  <div class="card text-white bg-primary">
-    <div class="card-header">Makale Resim</div>
-    <div class="card-body">
-      <img [src]="picture || defaultArticle"  class="img-thumbnail">
-    </div>
-    <div class="card-footer">
-      <input (change)="upload($event)" type="file" class="form-control" name="image">
+    <div class="card text-white bg-primary">
+      <div class="card-header">Makale Resim</div>
+      <div class="card-body">
+        <img [src]="picture || defaultArticle" class="img-thumbnail" />
+      </div>
+      <div class="card-footer">
+        <input
+          (change)="upload($event)"
+          type="file"
+          class="form-control"
+          name="image"
+        />
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -107,4 +107,8 @@ export class ArticleService {
     let url: string = this.apiUrl + '/' + 'SaveArticlePicture';
     return this.httpClient.post<any>(url,image);
   }
+
+  addArticle(article:Article){
+    return this.httpClient.post(this.apiUrl,article);
+  }
 }
