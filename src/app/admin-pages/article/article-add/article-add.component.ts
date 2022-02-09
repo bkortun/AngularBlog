@@ -9,6 +9,8 @@ import {
 } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
+import { MyValidationService } from 'src/app/services/my-validation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-add',
@@ -22,19 +24,28 @@ export class ArticleAddComponent implements OnInit {
   articleForm: FormGroup;
   success: boolean;
   loading: boolean;
-  info:string;
-  categories:Category[];
-  constructor(private articleService: ArticleService, private categoryService:CategoryService) {}
+  info: string;
+  categories: Category[];
+  constructor(
+    private articleService: ArticleService,
+    private categoryService: CategoryService,
+    public myValidationService: MyValidationService,
+    private router:Router
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
     this.articleForm = new FormGroup({
       title: new FormControl('makale1', Validators.required),
       contentSummary: new FormControl('makaleözeti1', Validators.required),
-      contentMain: new FormControl(''),
+      contentMain: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
       picture: new FormControl(''),
     });
+  }
+
+  get getControls() {
+    return this.articleForm.controls;
   }
 
   onSubmit() {
@@ -44,22 +55,24 @@ export class ArticleAddComponent implements OnInit {
         (response) => {
           console.log('eklendi');
           this.success = true;
+          this.router.navigateByUrl("/admin/makale/liste");
         },
         (error) => {
-          this.success = false
-          this.info="bir hata meydana geldi:"+error
+          this.success = false;
+          this.info = 'Bir hata meydana geldi, sayfayı yenileyin.';
+          console.log(error);
         }
       );
     }
   }
-  displayCategoryName(category:Category){
+  displayCategoryName(category: Category) {
     return category.name;
   }
 
-  getCategories(){
-    this.categoryService.getCategories().subscribe(response=>{
-      this.categories=response
-    })
+  getCategories() {
+    this.categoryService.getCategories().subscribe((response) => {
+      this.categories = response;
+    });
   }
 
   upload(files: any) {
@@ -72,7 +85,7 @@ export class ArticleAddComponent implements OnInit {
     this.articleService.saveArticlePicture(formData).subscribe((result) => {
       console.log(result.path);
       this.picture = result.path;
-      this.articleForm.controls['picture'].setValue(this.picture)
+      this.articleForm.controls['picture'].setValue(this.picture);
     });
   }
 }

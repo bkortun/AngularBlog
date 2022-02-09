@@ -14,6 +14,9 @@
             matInput
             [matAutocomplete]="auto"
           />
+          <!-- <mat-error *ngIf="getControls.category.invalid" >
+{{myValidationService.GetValidationMessage(getControls.category,"kategori")}}
+          </mat-error> -->
           <mat-autocomplete
             [displayWith]="displayCategoryName"
             #auto="matAutocomplete"
@@ -25,6 +28,9 @@
         </mat-form-field>
         <mat-form-field>
           <input formControlName="title" matInput placeholder="başlık" />
+          <!-- <mat-error *ngIf="getControls.title.invalid" >
+            {{myValidationService.GetValidationMessage(getControls.title,"makale başlığı")}}
+                      </mat-error> -->
         </mat-form-field>
         <mat-form-field>
           <input
@@ -32,9 +38,15 @@
             matInput
             placeholder="makale özeti"
           />
+          <!-- <mat-error *ngIf="getControls.contentSummary.invalid" >
+            {{myValidationService.GetValidationMessage(getControls.contentSummary,"makale özeti")}}
+                      </mat-error> -->
         </mat-form-field>
         <mat-form-field>
           <input formControlName="contentMain" matInput placeholder="makale" />
+          <!-- <mat-error *ngIf="getControls.contentMain.invalid" >
+            {{myValidationService.GetValidationMessage(getControls.contentMain,"makale")}}
+                      </mat-error> -->
         </mat-form-field>
         <button [disabled]="loading" mat-raised-button color="primary">
           Makale Ekle
@@ -47,6 +59,9 @@
         </button>
       </div>
     </form>
+    <div role="alert" *ngIf="info!=null" class="alert alert-danger mt-3">
+{{info}}
+    </div>
   </div>
   <div class="col-md-3">
     <div class="card text-white bg-primary">
