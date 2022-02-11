@@ -11,6 +11,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
 import { MyValidationService } from 'src/app/services/my-validation.service';
 import { Router } from '@angular/router';
+import * as DecoupledDocument from "@ckeditor/ckeditor5-build-decoupled-document";
 
 @Component({
   selector: 'app-article-add',
@@ -18,6 +19,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./article-add.component.css'],
 })
 export class ArticleAddComponent implements OnInit {
+  public Editor=DecoupledDocument;
   fileData: File = null;
   picture: string = null;
   defaultArticle: string = 'assets/article_empty.png';
@@ -47,6 +49,13 @@ export class ArticleAddComponent implements OnInit {
   get getControls() {
     return this.articleForm.controls;
   }
+
+  public onReady( editor ) {
+    editor.ui.getEditableElement().parentElement.insertBefore(
+        editor.ui.view.toolbar.element,
+        editor.ui.getEditableElement()
+    );
+}
 
   onSubmit() {
     if (this.articleForm.valid) {

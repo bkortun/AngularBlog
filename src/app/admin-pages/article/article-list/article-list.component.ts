@@ -18,6 +18,7 @@ export class ArticleListComponent implements OnInit {
     'publishDate',
     'viewCount',
     'commentCount',
+    'action'
   ];
   articles: Article[];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

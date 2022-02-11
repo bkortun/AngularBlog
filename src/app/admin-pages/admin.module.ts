@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { ComponentsModule } from '../components/components.module';
 import { MaterialModule } from '../modules/material/material.module';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { AdminNavComponent } from '../nav/admin-nav/admin-nav.component';
 import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.component';
@@ -18,7 +19,8 @@ import { ArticleListComponent } from './article/article-list/article-list.compon
     CommonModule,
     AppRoutingModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    CKEditorModule
   ]
 })
 export class AdminModule { }

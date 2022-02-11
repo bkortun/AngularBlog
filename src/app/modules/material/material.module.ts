@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatTableModule,
     MatPaginatorModule,
     MatAutocompleteModule,
+    MatIconModule,
   ],
   exports: [
     CommonModule,
@@ -31,6 +33,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatTableModule,
     MatPaginatorModule,
     MatAutocompleteModule,
+    MatIconModule,
   ],
 })
 export class MaterialModule {}

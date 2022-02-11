@@ -42,12 +42,11 @@
             {{myValidationService.GetValidationMessage(getControls.contentSummary,"makale özeti")}}
                       </mat-error> -->
         </mat-form-field>
-        <mat-form-field>
-          <input formControlName="contentMain" matInput placeholder="makale" />
-          <!-- <mat-error *ngIf="getControls.contentMain.invalid" >
-            {{myValidationService.GetValidationMessage(getControls.contentMain,"makale")}}
-                      </mat-error> -->
-        </mat-form-field>
+        <div style="border: 1px solid black;" class="mb-2">
+        <ckeditor formControlName="contentMain" [editor]="Editor" (ready)="onReady($event)" ></ckeditor>
+      </div>
+
+
         <button [disabled]="loading" mat-raised-button color="primary">
           Makale Ekle
           <span

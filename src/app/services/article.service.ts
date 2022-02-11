@@ -111,4 +111,8 @@ export class ArticleService {
   addArticle(article:Article){
     return this.httpClient.post(this.apiUrl,article);
   }
+  updateArticle(id:number,article:Article){
+    let url:string=this.apiUrl+"/"+id;
+    return this.httpClient.put(url,article);
+  }
 }
