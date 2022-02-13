@@ -115,4 +115,8 @@ export class ArticleService {
     let url:string=this.apiUrl+"/"+id;
     return this.httpClient.put(url,article);
   }
+  deleteArticle(id:number){
+    let url:string=this.apiUrl+"/"+id;
+    return this.httpClient.delete(url);
+  }
 }

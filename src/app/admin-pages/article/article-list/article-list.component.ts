@@ -18,7 +18,7 @@ export class ArticleListComponent implements OnInit {
     'publishDate',
     'viewCount',
     'commentCount',
-    'action'
+    'action',
   ];
   articles: Article[];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -29,6 +29,16 @@ export class ArticleListComponent implements OnInit {
     this.articleService.getArticlesWithoutPg().subscribe((response) => {
       (this.articles = response),
         (this.dataSource = new MatTableDataSource<Article>(response)),
+        (this.dataSource.paginator = this.paginator);
+    });
+  }
+
+  deleteArticle(id) {
+    this.articleService.deleteArticle(id).subscribe((response) => {
+      let article = this.articles.find((x) => x.id == id);
+      let index = this.articles.indexOf(article);
+      this.articles.splice(index, 1);
+      (this.dataSource = new MatTableDataSource<Article>(this.articles)),
         (this.dataSource.paginator = this.paginator);
     });
   }

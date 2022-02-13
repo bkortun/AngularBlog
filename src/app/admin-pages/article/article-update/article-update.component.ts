@@ -28,6 +28,7 @@ export class ArticleUpdateComponent implements OnInit {
   info: string;
   categories: Category[];
   articleId:number;
+  contentLoading:boolean=true;
   constructor(
     private articleService: ArticleService,
     private categoryService: CategoryService,
@@ -45,6 +46,7 @@ export class ArticleUpdateComponent implements OnInit {
       this.articleForm.controls['contentSummary'].setValue(response.contentSummary);
       this.articleForm.controls['contentMain'].setValue(response.contentMain);
       this.articleForm.controls['category'].setValue(response.category);
+      this.contentLoading=false;
     });
 
 
