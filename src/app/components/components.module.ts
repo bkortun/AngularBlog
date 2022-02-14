@@ -9,10 +9,11 @@ import { ArticlesComponent } from './articles/articles.component';
 import { UrlFormatPipe } from '../pipes/url-format.pipe';
 import { MenuArticleMostViewComponent } from './menu-article-most-view/menu-article-most-view.component';
 import { MenuArchiveComponent } from './menu-archive/menu-archive.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 
 @NgModule({
-  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlFormatPipe, MenuArticleMostViewComponent, MenuArchiveComponent],
+  declarations: [MenuCategoryComponent, PageTitleComponent, ArticlesComponent,UrlFormatPipe, MenuArticleMostViewComponent, MenuArchiveComponent, AddCommentComponent],
   imports: [
     CommonModule,
     RouterModule,
