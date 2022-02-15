@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MaterialModule } from '../modules/material/material.module';
 
 import { MenuCategoryComponent } from './menu-category/menu-category.component';
 import { PageTitleComponent } from './page-title/page-title.component';
@@ -17,7 +18,8 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
   imports: [
     CommonModule,
     RouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MaterialModule,
   ],
   exports:[
     MenuCategoryComponent,
@@ -25,7 +27,8 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     ArticlesComponent,
     UrlFormatPipe,
     MenuArticleMostViewComponent,
-    MenuArchiveComponent
+    MenuArchiveComponent,
+    AddCommentComponent
   ]
 })
 export class ComponentsModule { }

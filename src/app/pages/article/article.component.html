@@ -1,4 +1,5 @@
-<div class="card bordered-primary" *ngIf="!articleService.loading">
+<div *ngIf="!articleService.loading">
+<div class="card bordered-primary" >
   <div class="card-header">
     <h2>{{ article.title }}</h2>
 
@@ -25,6 +26,8 @@
   <div class="card-body">
     <div class="ck ck-editor" [innerHTML]="article.contentMain"></div>
   </div>
+</div>
+<app-add-comment></app-add-comment>
 </div>
 
 <div class="card bg-light" style="height: 500px" *ngIf="articleService.loading">
@@ -56,3 +59,6 @@
     </div>
   </div>
 </div>
+
+
+

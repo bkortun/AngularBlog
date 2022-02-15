@@ -11,7 +11,7 @@ import { MyValidationService } from 'src/app/services/my-validation.service';
 })
 export class AddCommentComponent implements OnInit {
 
-  constructor(private commentService:CommentService, private activatedRoute:ActivatedRoute, public myValidation:MyValidationService) { }
+  constructor(public commentService:CommentService, private activatedRoute:ActivatedRoute, public myValidation:MyValidationService) { }
 
   commentForm:FormGroup;
   success:boolean;
@@ -28,7 +28,7 @@ export class AddCommentComponent implements OnInit {
 onSubmit(){
   if (this.commentForm.valid) {
     let id=Number(this.activatedRoute.snapshot.paramMap.get("id"));
-    this.commentForm.value.articleId.setValue(id);  //!!!!!!!!!!!!!!!!!!!!!
+    this.commentForm.controls['articleId'].setValue(id);  //!!!!!!!!!!!!!!!!!!!!!
     this.commentService.addComment(this.commentForm.value).subscribe(response=>{
       this.success=true
       this.info="Yorumunuz başarıyla eklendi."
