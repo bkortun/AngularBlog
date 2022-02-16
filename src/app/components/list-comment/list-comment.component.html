@@ -1,0 +1,15 @@
+<h1 class="display-4 mt-2">Yorumlar({{ comments.length }})</h1>
+<hr>
+<div *ngIf="loading">Loading</div>
+<div *ngIf="!loading">
+  <div *ngFor="let item of comments" class="card bg-light mt-3">
+    <div class="card-header">
+      <strong class="mt-3"><i class="fa fa-user-circle"></i> {{ item.name }}</strong>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        {{ item.contentMain }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainLayoutComponent } from '../layout/main-layout/main-layout.component';
 import { MainNavComponent } from '../nav/main-nav/main-nav.component';
+import { FooterNavComponent } from '../nav/footer-nav/footer-nav.component';
 import { ArticleComponent } from './article/article.component';
 import { CategoryArticlesComponent } from './category-articles/category-articles.component';
 import { SearchsComponent } from './searchs/searchs.component';
@@ -24,6 +25,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
   declarations: [
     MainLayoutComponent,
     MainNavComponent,
+    FooterNavComponent,
     HomeComponent,
     AboutMeComponent,
     ContactComponent,

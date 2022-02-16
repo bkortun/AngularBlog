@@ -58,7 +58,7 @@
         </button>
       </div>
     </form>
-    <div class="card bg-light" style="height: 500px">
+    <div class="card bg-light" style="height: 500px" *ngIf="contentLoading">
       <div class="card-body text-center">
         <h1>Makale Yükleniyor...</h1>
         <div class="spinner-grow text-primary" role="status">
