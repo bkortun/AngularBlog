@@ -16,7 +16,7 @@ import { ArticleListComponent } from './admin-pages/article/article-list/article
 import { ArticleAddComponent } from './admin-pages/article/article-add/article-add.component';
 import { ArticleUpdateComponent } from './admin-pages/article/article-update/article-update.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
-import { AuthGuardService } from './services/auth-guard.service';
+// import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -39,7 +39,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
-    canActivate:[AuthGuardService],
+    // canActivate:[AuthGuardService],
     children:[
       {path:"",component: AdminHomeComponent},
       {path:"anasayfa",component:AdminHomeComponent},

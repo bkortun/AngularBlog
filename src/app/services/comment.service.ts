@@ -7,7 +7,8 @@ import { Comment } from '../models/comment';
   providedIn: 'root',
 })
 export class CommentService {
-  private apiPath: string = 'https://localhost:44351/api/Comments';
+  //https://localhost:44351/api/Comments
+  private apiPath: string = 'https://localhost:44368/api/Comments';
   loading: boolean = false;
   constructor(private httpClient: HttpClient) {}
 

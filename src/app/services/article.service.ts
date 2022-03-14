@@ -11,7 +11,8 @@ import { Archive } from '../models/archive';
 export class ArticleService {
   constructor(private httpClient: HttpClient) {}
   public loading: boolean = true;
-  private apiUrl: string = 'https://localhost:44351/api/Articles';
+  //https://localhost:44351/api/Articles
+  private apiUrl: string = 'https://localhost:44368/api/Articles';
   getArticles(page: number, pageSize: Number) {
     let url: string = this.apiUrl + '/' + page + '/' + pageSize;
     return this.httpClient.get<ArticlePg>(url).pipe(

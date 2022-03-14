@@ -1,18 +1,32 @@
 <app-page-title [title]="'Admin Panel Giriş'"></app-page-title>
-<div class="example-container">
-  <mat-form-field>
+<form *ngIf="info == null" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <div class="example-container">
+    <!-- <mat-form-field>
     <input #emailInput matInput placeholder="email" />
   </mat-form-field>
 
   <mat-form-field>
     <input type="password" #passwordInput matInput placeholder="şifre" />
-  </mat-form-field>
+  </mat-form-field> -->
 
-  <button
-    (click)="login(emailInput.value, passwordInput.value)"
-    mat-raised-button
-    color="primary"
-  >
-    giriş
-  </button>
-</div>
+    <mat-form-field>
+      <input formControlName="email" matInput placeholder="Email" type="email"/>
+      <!--  -->
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="password" matInput placeholder="Şifre" type="password" />
+      <!--  -->
+    </mat-form-field>
+
+    <button [disabled]="loading" mat-raised-button color="primary">
+      Giriş Yap
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      ></span>
+    </button>
+  </div>
+</form>
+<p>{{info}}</p>
